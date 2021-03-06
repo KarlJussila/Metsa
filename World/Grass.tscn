@@ -62,6 +62,6 @@ collision_layer = 8
 position = Vector2( 8, 8 )
 shape = SubResource( 7 )
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="hurt" from="Hurtbox" to="." method="_on_Hurtbox_hurt"]
 
 [editable path="Hurtbox"]
