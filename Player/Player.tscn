@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -681,6 +681,9 @@ height = 12.0
 radius = 5.0
 height = 6.0
 
+[sub_resource type="CircleShape2D" id=53]
+radius = 7.0
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 2 )
@@ -760,6 +763,9 @@ texture_scale = 0.75
 color = Color( 0.988235, 0.956863, 0.752941, 1 )
 energy = 0.0
 script = ExtResource( 9 )
+
+[node name="PickupCollision" type="CollisionShape2D" parent="."]
+shape = SubResource( 53 )
 [connection signal="hurt" from="Hurtbox" to="." method="_on_Hurtbox_hurt"]
 
 [editable path="HitboxPivot/SwordHitbox"]

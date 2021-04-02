@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -9,7 +9,11 @@
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Player/HealthUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/TimeDisplay.gd" type="Script" id=10]
 [ext_resource path="res://Time.gd" type="Script" id=11]
+[ext_resource path="res://UI/m5x7.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://UserInterface.gd" type="Script" id=13]
+[ext_resource path="res://UI/Inventory.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -495,8 +499,11 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/z_index = 0
 
 [sub_resource type="Gradient" id=51]
-offsets = PoolRealArray( 0, 0.353116, 0.688427 )
-colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1 )
+offsets = PoolRealArray( 0.166172, 0.27003, 0.382789, 0.519288, 0.67359, 0.816024, 0.922849, 1 )
+colors = PoolColorArray( 0.0509804, 0.00392157, 0.231373, 1, 1, 0.721317, 0.367865, 1, 1, 0.901203, 0.775899, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.709804, 0.368627, 1, 0.461896, 0.29562, 0.613281, 1, 0.0493263, 0.00535974, 0.230469, 1 )
+
+[sub_resource type="DynamicFont" id=52]
+font_data = ExtResource( 12 )
 
 [node name="World" type="Node2D"]
 
@@ -593,15 +600,34 @@ position = Vector2( 256, 112 )
 [node name="Time" type="Node2D" parent="."]
 script = ExtResource( 11 )
 daylight_gradient = SubResource( 51 )
+time = 1080
 
 [node name="Timer" type="Timer" parent="Time"]
+
+[node name="TimeDisplay" type="CanvasLayer" parent="Time"]
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="Time/TimeDisplay"]
+margin_left = 230.0
+margin_right = 318.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 52 )
+text = "6:00 AM"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Lighting" type="Node2D" parent="."]
 
 [node name="GlobalLight" type="CanvasModulate" parent="Lighting"]
 color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UserInterface" type="CanvasLayer" parent="."]
+script = ExtResource( 13 )
 
-[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 8 )]
+[node name="HealthUI" parent="UserInterface" instance=ExtResource( 8 )]
+
+[node name="Inventory" parent="UserInterface" instance=ExtResource( 14 )]
+visible = false
 [connection signal="timeout" from="Time/Timer" to="Time" method="_on_Timer_timeout"]
