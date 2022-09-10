@@ -621,7 +621,6 @@ __meta__ = {
 [node name="Lighting" type="Node2D" parent="."]
 
 [node name="GlobalLight" type="CanvasModulate" parent="Lighting"]
-color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource( 13 )
@@ -630,4 +629,5 @@ script = ExtResource( 13 )
 
 [node name="Inventory" parent="UserInterface" instance=ExtResource( 14 )]
 visible = false
+
 [connection signal="timeout" from="Time/Timer" to="Time" method="_on_Timer_timeout"]

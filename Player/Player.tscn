@@ -760,7 +760,7 @@ stream = ExtResource( 7 )
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 8 )
 texture_scale = 0.75
-color = Color( 0.988235, 0.956863, 0.752941, 1 )
+color = Color( 0.85098, 0.541176, 0, 1 )
 energy = 0.0
 script = ExtResource( 9 )
 
