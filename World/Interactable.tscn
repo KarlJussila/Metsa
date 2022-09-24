@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+
+[node name="Interactable" type="Node2D"]
+
+[node name="InteractRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange"]
+shape = SubResource( 1 )
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="InteractRange" to="." method="_on_InteractRange_area_entered"]
+[connection signal="area_exited" from="InteractRange" to="." method="_on_InteractRange_area_exited"]
+[connection signal="mouse_entered" from="InteractArea" to="." method="_on_InteractArea_mouse_entered"]
+[connection signal="mouse_exited" from="InteractArea" to="." method="_on_InteractArea_mouse_exited"]

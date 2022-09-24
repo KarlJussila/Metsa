@@ -702,7 +702,9 @@ frame = 31
 [node name="HurtAnimation" type="AnimationPlayer" parent="Sprite"]
 anims/Hurt = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollisionArea"]
 position = Vector2( -1.52588e-05, 0 )
 rotation = -1.5708
 shape = SubResource( 2 )
@@ -766,8 +768,8 @@ script = ExtResource( 9 )
 
 [node name="PickupCollision" type="CollisionShape2D" parent="."]
 shape = SubResource( 53 )
+
 [connection signal="hurt" from="Hurtbox" to="." method="_on_Hurtbox_hurt"]
 
 [editable path="HitboxPivot/SwordHitbox"]
-
 [editable path="Hurtbox"]
