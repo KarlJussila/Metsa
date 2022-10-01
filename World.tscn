@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://UserInterface.gd" type="Script" id=13]
 [ext_resource path="res://UI/Inventory.tscn" type="PackedScene" id=14]
 [ext_resource path="res://World/Connector.tscn" type="PackedScene" id=15]
+[ext_resource path="res://LoadScene.gd" type="Script" id=16]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -507,10 +508,7 @@ colors = PoolColorArray( 0.0509804, 0.00392157, 0.231373, 1, 1, 0.721317, 0.3678
 font_data = ExtResource( 12 )
 
 [node name="World" type="Node2D"]
-
-[node name="Connector" parent="." instance=ExtResource( 15 )]
-position = Vector2( 351.405, 143.201 )
-player_position = Vector2( 450, 250 )
+script = ExtResource( 16 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 111, 38 )
@@ -634,10 +632,12 @@ __meta__ = {
 script = ExtResource( 13 )
 
 [node name="HealthUI" parent="UserInterface" instance=ExtResource( 8 )]
-mouse_filter = 2
 
 [node name="Inventory" parent="UserInterface" instance=ExtResource( 14 )]
 visible = false
-[connection signal="timeout" from="Time/Timer" to="Time" method="_on_Timer_timeout"]
 
-[editable path="Connector"]
+[node name="BushierPortal" parent="." instance=ExtResource( 15 )]
+position = Vector2( 351.303, 143.769 )
+end_location = "res://World_with_extra_bush.tscn"
+player_position = Vector2( 450, 250 )
+[connection signal="timeout" from="Time/Timer" to="Time" method="_on_Timer_timeout"]

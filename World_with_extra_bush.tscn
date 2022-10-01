@@ -1,6 +1,7 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=3]
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
@@ -13,6 +14,8 @@
 [ext_resource path="res://UI/m5x7.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://UserInterface.gd" type="Script" id=13]
 [ext_resource path="res://UI/Inventory.tscn" type="PackedScene" id=14]
+[ext_resource path="res://LoadScene.gd" type="Script" id=15]
+[ext_resource path="res://World/Connector.tscn" type="PackedScene" id=16]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -505,9 +508,10 @@ colors = PoolColorArray( 0.0509804, 0.00392157, 0.231373, 1, 1, 0.721317, 0.3678
 font_data = ExtResource( 12 )
 
 [node name="World" type="Node2D"]
+script = ExtResource( 15 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 111, 38 )
+position = Vector2( 111.334, 41.0755 )
 current = true
 process_mode = 0
 smoothing_enabled = true
@@ -531,7 +535,17 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 1, -65535, 0, 2, -65530, 0, 0, -65529, 0, 1, -65528, 0, 1, -65527, 0, 1, -65526, 0, 2, 65535, 0, 131072, 0, 0, 131073, 1, 0, 131074, 6, 0, 131072, 7, 0, 131073, 8, 0, 65542, 9, 0, 65537, 10, 0, 65538, 65544, 0, 65536, 65545, 0, 65537, 65546, 0, 65538, 131080, 0, 131072, 131081, 0, 131073, 131082, 0, 131074, 262143, 0, 0, 196608, 0, 1, 196609, 0, 1, 196610, 0, 1, 196611, 0, 2, 327679, 0, 65536, 262144, 0, 65537, 262145, 0, 65537, 262146, 0, 65537, 262147, 0, 65538, 393215, 0, 65536, 327680, 0, 65537, 327681, 0, 65537, 327682, 0, 65537, 327683, 0, 65538, 458751, 0, 131072, 393216, 0, 131073, 393217, 0, 131073, 393218, 0, 131073, 393219, 0, 131074 )
 
+[node name="BackToLessBush" parent="." instance=ExtResource( 16 )]
+position = Vector2( 113.575, -32.8693 )
+player_position = Vector2( 50, 150 )
+
 [node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 111.334, 41.0755 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+remote_path = NodePath("../../../Camera2D")
 
 [node name="Bushes" type="YSort" parent="YSort"]
 
