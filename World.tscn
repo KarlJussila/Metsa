@@ -634,6 +634,7 @@ __meta__ = {
 script = ExtResource( 13 )
 
 [node name="HealthUI" parent="UserInterface" instance=ExtResource( 8 )]
+mouse_filter = 2
 
 [node name="Inventory" parent="UserInterface" instance=ExtResource( 14 )]
 visible = false
