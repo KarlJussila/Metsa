@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Lighting/scripts/EnvironmentalLight.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=52]
+offsets = PoolRealArray( 0.166172, 0.27003, 0.382789, 0.519288, 0.67359, 0.816024, 0.922849, 1 )
+colors = PoolColorArray( 0.0509804, 0.00392157, 0.231373, 1, 1, 0.721317, 0.367865, 1, 1, 0.901203, 0.775899, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.709804, 0.368627, 1, 0.461896, 0.29562, 0.613281, 1, 0.0493263, 0.00535974, 0.230469, 1 )
+
+[node name="EnvironmentalLight" type="CanvasModulate"]
+script = ExtResource( 1 )
+daylight_gradient = SubResource( 52 )

@@ -1,0 +1,21 @@
+{
+    "iron_sword": {
+        "item_category": "melee_weapon",
+        "stack_size": 1,
+        "display_name": "Iron Sword"
+    },
+
+    "bow": {
+        "item_category": "ranged_weapon",
+        "stack_size": 1,
+        "display_name": "Bow",
+        "ammo_type": "arrow"
+    },
+
+    "arrow": {
+        "item_category": "ammo",
+        "stack_size": 99,
+        "display_name": "Arrow",
+        "ammo_type": "arrow"
+    }
+}
