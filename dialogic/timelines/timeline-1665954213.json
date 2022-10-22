@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "start"
+		},
+		{
+			"character": "character-1665952428.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Greetings, traveler. Can I interest you in a candle?"
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1665952428.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[b][color=#AA0000]Good.[/color][/b]"
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1665954213.json",
+		"name": "greetings"
+	}
+}
